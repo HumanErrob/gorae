@@ -1,0 +1,41 @@
+services:
+  flask:
+    container_name: gorae-flask
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PW}@goraeuniv-postgres:5432/${POSTGRES_DB}
+    ports:
+      - "5000:5000"
+    restart: always
+    volumes:
+      - .:/app
+
+  postgres:
+    container_name: goraeuniv-postgres
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_DB=${POSTGRES_DB} #optional (specify default database instead of $POSTGRES_DB)
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_MAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PW}
+    volumes:
+      - ./pgadmin-data:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    restart: always
