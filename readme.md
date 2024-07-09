@@ -22,16 +22,20 @@ requirements.txt : flask app을 위해 설치해야 하는 파이썬 package 입
 
 ### howto 
 1. 이 리포지토리를 복사합니다. 
-`    git clone https://github.com/HumanErrob/gorae.git
+`    
+    git clone https://github.com/HumanErrob/gorae.git
 
 2. 클론한 경로에서 서비스를 띄웁니다.
-`    docker-compose up -d 
+`    
+    docker-compose up -d 
     
 3. pgadmin 이미지의 기본 유저 아이디가 5050으로 되어있어, 폴더의 사용자 권한을 변경해줘야 합니다. 
-`    sudo chown -R 5050:5050 ./pgadmin-data/pgadmin
+`    
+    sudo chown -R 5050:5050 ./pgadmin-data/pgadmin
 
 4. 서비스를 다시 띄웁니다. 
-`    docker-compose up -d
+`    
+    docker-compose up -d
 
 ### setup 
 #### 1. pgadmin 접속 (.env 파일참고)
