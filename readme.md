@@ -19,7 +19,7 @@ requirements.txt : flask app을 위해 설치해야 하는 파이썬 package 입
 저는 os 우분투 에서 테스트 했습니다. 
 [docker](https://docs.docker.com/engine/install/), [docker-compose](https://docs.docker.com/compose/install/)
 를 설치해주세요
-
+---
 ### howto 
 1. 이 리포지토리를 복사합니다. 
     ```    
@@ -36,7 +36,7 @@ requirements.txt : flask app을 위해 설치해야 하는 파이썬 package 입
 4. 서비스를 다시 띄웁니다. 
     ```    
     docker-compose up -d
-
+---
 ### setup 
 #### 1. pgadmin 접속 (.env 파일참고)
     - http://localhost:5000/register
